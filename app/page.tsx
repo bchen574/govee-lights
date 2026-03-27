@@ -27,7 +27,7 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center font-sans bg-gray-900 ">
       <main className="flex flex-1 flex-col gap-17 w-full justify-center items-center">
         <h1 className="text-2xl text-white font-medium ">
-          Click turn on all lights.
+          {isOn ? "Lights On" : "Lights Off"}
         </h1>
 
         <Button
