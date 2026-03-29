@@ -62,7 +62,7 @@ export default function Home() {
             animate={{ opacity: 1, scaleX: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="fixed top-30 text-white text-base px-6 py-4 bg-neutral-800/20 border border-neutral-800 rounded-full"
+            className="fixed top-10 text-white text-base px-6 py-4 bg-neutral-800/20 border border-neutral-800 rounded-full"
           >
             Light will turn off in {minutes}m {String(seconds).padStart(2, "0")}
             s
