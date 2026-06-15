@@ -46,5 +46,6 @@ export function useDeviceState(deviceKey: Device) {
   return useQuery({
     queryKey: ["deviceState", deviceKey],
     queryFn: () => getDeviceState(deviceKey),
+    refetchInterval: 1000,
   });
 }
