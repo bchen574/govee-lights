@@ -7,7 +7,7 @@ export const ALL_DEVICES = {
     device: "14:70:D1:05:C3:46:2A:69",
   },
 
-  bedroom: {
+  Bedroom: {
     deviceName: "Bedroom",
     sku: "H619A",
     device: "17:01:D4:0E:86:06:7E:3F",
@@ -31,7 +31,7 @@ export const ALL_DEVICES = {
     device: "05:19:5C:E7:53:65:C0:A4",
   },
 
-  lamp: {
+  Lamp: {
     deviceName: "Low Lamp",
     sku: "H6008",
     device: "05:14:5C:E7:53:6A:BE:7C",
