@@ -23,12 +23,20 @@ export function LightSwitch({ device }: { device: Device }) {
   const lightState = optimisticState ?? powerSwitch?.state?.value;
 
   return (
-    <div className="flex  flex-row gap-8 px-5 py-3 rounded-lg justify-center items-center bg-card border-border border w-full md:w-[400px]  ">
-      <h1 className="text-foreground font-light text-lg flex-1"> {device}</h1>
+    <div className="flex  flex-row gap-8 px-5 py-4 rounded-lg justify-center items-center bg-card/50 w-full  md:w-[400px]  ">
+      <h1 className="text-foreground font-heading font-medium  text-lg flex-1">
+        {" "}
+        {device}
+      </h1>
       <Button
-        className={cn("rounded-lg", lightState === 1 ? "" : "bg-background")}
+        className={cn(
+          "rounded-md  ",
+          lightState === 1
+            ? "shadow-[-1px_-1px_12px_1px_rgba(249,_115,_22,_0.3)]"
+            : "bg-background",
+        )}
         variant={lightState === 1 ? "default" : "outline"}
-        size="icon-lg"
+        size="icon-sm"
         onClick={() => {
           const nextState = lightState === 1 ? 0 : 1;
           setOptimisticState(nextState);
@@ -50,9 +58,7 @@ export function LightSwitch({ device }: { device: Device }) {
             },
           );
         }}
-      >
-        <Power className=" text-gray-300" />
-      </Button>
+      ></Button>
     </div>
   );
 }
