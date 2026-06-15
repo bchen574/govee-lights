@@ -10,7 +10,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 export default function Home() {
   const { mutate: sendCommand } = useSendCommands();
-  const { data, refetch } = useDeviceState("bedroom");
+  const { data } = useDeviceState("bedroom");
 
   const queryClient = useQueryClient();
 
