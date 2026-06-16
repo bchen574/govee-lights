@@ -56,7 +56,7 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
   }
 
   return (
-    <div className="flex flex-col gap-8 px-6 py-6 h-full rounded-xl justify-between items-center bg-card/100 border border-border/30 w-full">
+    <div className="flex flex-col  gap-8 px-6 py-6 h-40 md:h-full rounded-xl justify-between items-center bg-card/100 border border-border/30 w-full">
       <div className="flex flex-row w-full">
         <div className="flex-1 flex flex-row gap-2 items-center">
           <div className="text-foreground font-heading font-normal text-gray-200 text-lg">
@@ -70,7 +70,7 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
 
         <Button
           className={cn(
-            "rounded-md bg-neutral-300",
+            "rounded-full bg-orange-500 transition-all",
             lightState === 1 ? "" : "bg-background",
           )}
           variant={lightState === 1 ? "default" : "outline"}
