@@ -31,7 +31,7 @@ function Slider({
       min={min}
       max={max}
       className={cn(
-        "relative flex w-full h-10 rounded-md overflow-hidden touch-none items-center select-none data-disabled:opacity-20 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col",
+        "relative flex w-full h-full max-h-20 rounded-md overflow-hidden touch-none items-center select-none data-disabled:opacity-20 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col",
         className,
       )}
       {...props}

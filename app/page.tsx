@@ -11,7 +11,7 @@ export default function Home() {
   });
 
   return (
-    <div className="  grid grid-cols-1 gap-4 md:grid md:grid-cols-2 md:gap-4 md:h-100 items-center justify-start py-6  font-sans bg-background px-6 ">
+    <div className="  grid grid-cols-1 gap-4 md:grid md:grid-cols-2 md:gap-4 md:h-200 items-center justify-start py-6  font-sans bg-background px-6 ">
       {lightSwitchMap}
     </div>
   );

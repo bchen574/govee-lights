@@ -46,14 +46,14 @@ export function LightSwitch({ device }: { device: Device }) {
           <Skeleton className="h-8 w-8 rounded-md" />
         </div>
 
-        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-full w-full" />
       </div>
     );
   } else {
   }
 
   return (
-    <div className="  flex flex-col gap-8 px-6 py-6 h-full rounded-xl justify-between  items-center bg-card/100 border border-border/30 w-full min-h-12 ">
+    <div className="  flex flex-col gap-8 px-6 py-6 h-full rounded-xl justify-between  items-center bg-card/100 border border-border/30 w-full ">
       <div className="flex flex-row w-full">
         <div className="flex-1 flex flex-row gap-2 items-center">
           <div className="text-foreground font-heading font-normal text-gray-200  text-lg ">
