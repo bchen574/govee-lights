@@ -39,7 +39,7 @@ export function LightSwitch({ device }: { device: Device }) {
   }
 
   return (
-    <div className="flex  flex-col gap-8 px-5 py-4 rounded-lg justify-center items-center bg-card/100 border border-border/30 w-full  md:w-[400px]  ">
+    <div className="  flex flex-col gap-8 px-6 py-6 h-full rounded-xl justify-between  items-center bg-card/100 border border-border/30 w-full min-h-12 ">
       <div className="flex flex-row w-full">
         <div className="flex-1 flex flex-row gap-2 items-center">
           <div className="text-foreground font-heading font-normal text-gray-200  text-lg ">

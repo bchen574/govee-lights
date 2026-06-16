@@ -38,7 +38,7 @@ export default function RootLayout({
         inter.variable,
       )}
     >
-      <body className=" dark min-h-full flex flex-col">
+      <body className=" dark bg-background min-h-full flex flex-col">
         {" "}
         <Providers>{children}</Providers>
       </body>
