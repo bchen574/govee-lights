@@ -9,6 +9,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { Device } from "@/lib/govee/devices";
 import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function LightSwitch({ device }: { device: Device }) {
   const { mutate: sendCommand } = useSendCommands();
@@ -34,7 +35,20 @@ export function LightSwitch({ device }: { device: Device }) {
     (brightnessCapability?.state?.value as number | undefined);
 
   if (!data) {
-    return null;
+    return (
+      <div className="flex flex-col gap-8 px-6 py-6 h-full rounded-xl justify-between items-center bg-card/100 border border-border/30 w-full min-h-12">
+        <div className="flex flex-row w-full">
+          <div className="flex-1 flex flex-row gap-2 items-center">
+            <Skeleton className="h-6 w-24" />
+            <Skeleton className="h-4 w-12" />
+          </div>
+
+          <Skeleton className="h-8 w-8 rounded-md" />
+        </div>
+
+        <Skeleton className="h-4 w-full" />
+      </div>
+    );
   } else {
   }
 
