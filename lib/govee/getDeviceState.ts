@@ -1,8 +1,7 @@
 "use client";
-import type { Device } from "./devices";
-import { ALL_DEVICES } from "./devices";
+
+import { ALL_DEVICES, type Device } from "./devices";
 import { useQuery } from "@tanstack/react-query";
-import type { DeviceCapability } from "./capabilities";
 
 type CapabilityResponse = {
   type: string;
@@ -12,7 +11,7 @@ type CapabilityResponse = {
   };
 };
 
-type DeviceStateResponse = {
+export type DeviceStateResponse = {
   requestId: string;
   msg: string;
   code: number;
@@ -23,6 +22,8 @@ type DeviceStateResponse = {
   };
 };
 
+export type AllDeviceStates = Partial<Record<Device, DeviceStateResponse>>;
+
 async function getDeviceState(deviceKey: Device): Promise<DeviceStateResponse> {
   const sku = ALL_DEVICES[deviceKey].sku;
   const device = ALL_DEVICES[deviceKey].device;
@@ -32,7 +33,7 @@ async function getDeviceState(deviceKey: Device): Promise<DeviceStateResponse> {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ sku: sku, device: device }),
+    body: JSON.stringify({ sku, device }),
   });
 
   if (!res.ok) {
@@ -42,10 +43,21 @@ async function getDeviceState(deviceKey: Device): Promise<DeviceStateResponse> {
   return res.json();
 }
 
-export function useDeviceState(deviceKey: Device) {
+async function getAllDeviceStates(): Promise<AllDeviceStates> {
+  const entries = await Promise.all(
+    (Object.keys(ALL_DEVICES) as Device[]).map(async (deviceKey) => [
+      deviceKey,
+      await getDeviceState(deviceKey),
+    ]),
+  );
+
+  return Object.fromEntries(entries);
+}
+
+export function useAllDeviceStates() {
   return useQuery({
-    queryKey: ["deviceState", deviceKey],
-    queryFn: () => getDeviceState(deviceKey),
+    queryKey: ["deviceStates"],
+    queryFn: getAllDeviceStates,
     refetchInterval: 1000,
   });
 }
