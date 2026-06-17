@@ -1,5 +1,5 @@
 "use client";
-import type { Command } from "@/lib/api/sendCommand2";
+import type { Command } from "@/lib/govee/api/server/sendCommand";
 import { useMutation } from "@tanstack/react-query";
 
 export async function sendCommands(commands: Command[]) {

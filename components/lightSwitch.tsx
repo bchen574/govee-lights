@@ -3,9 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useSendCommands } from "@/lib/govee/sendCommand";
-import { AllDeviceStates } from "@/lib/govee/getDeviceState";
-import { Device } from "@/lib/govee/devices";
+import { useSendCommands } from "@/lib/govee/api/client/sendCommand";
+import { AllDeviceStates } from "@/lib/govee/api/client/getDeviceState";
+import { Device } from "@/lib/govee/constants/devices";
 import { cn } from "@/lib/utils";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -32,7 +32,9 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
   const [optimisticState, setOptimisticState] = useState<number>();
   const [optimisticBrightness, setOptimisticBrightness] = useState<number>();
 
-  const lightState = optimisticState ?? powerSwitchCapability?.state?.value;
+  const apiLightState = powerSwitchCapability?.state?.value;
+
+  const lightState = optimisticState ?? apiLightState;
 
   const brightness =
     optimisticBrightness ??
@@ -96,6 +98,9 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
                 },
               },
             );
+            setTimeout(() => {
+              setOptimisticState(undefined);
+            }, 2000);
           }}
         />
       </div>
@@ -126,6 +131,9 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
                 },
               },
             );
+            setTimeout(() => {
+              setOptimisticBrightness(undefined);
+            }, 2000);
           }}
         />
       )}

@@ -1,9 +1,9 @@
 "use client";
 
 import { LightSwitch } from "@/components/lightSwitch";
-import { ALL_DEVICES } from "@/lib/govee/devices";
-import { Device } from "@/lib/govee/devices";
-import { useAllDeviceStates } from "@/lib/govee/getDeviceState";
+import { ALL_DEVICES } from "@/lib/govee/constants/devices";
+import { Device } from "@/lib/govee/constants/devices";
+import { useAllDeviceStates } from "@/lib/govee/api/client/getDeviceState";
 
 export default function Home() {
   const { data: deviceStates } = useAllDeviceStates();

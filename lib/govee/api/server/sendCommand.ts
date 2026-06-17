@@ -1,15 +1,27 @@
 const GOVEE_URL = "https://openapi.api.govee.com/router/api/v1/device/control";
 
-import type { Device } from "../govee/devices";
-import { ALL_DEVICES } from "../govee/devices";
-import { DEVICE_CAPABILITIES } from "../govee/capabilities";
-import { DeviceCapability } from "../govee/capabilities";
-import { GoveeControlRequest } from "../govee/controlRequestType";
+import type { Device } from "../../constants/devices";
+import { ALL_DEVICES } from "../../constants/devices";
+import { DEVICE_CAPABILITIES } from "../../constants/capabilities";
+import { DeviceCapability } from "../../constants/capabilities";
 
 export type Command = {
   device: Device;
   capability: DeviceCapability;
   value: string | number;
+};
+
+type GoveeControlRequest = {
+  requestId: string;
+  payload: {
+    sku: string;
+    device: string;
+    capability: {
+      type: string;
+      instance: string;
+      value?: string | number;
+    };
+  };
 };
 
 export default async function sendCommand(command: Command) {

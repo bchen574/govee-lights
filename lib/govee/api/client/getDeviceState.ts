@@ -1,6 +1,6 @@
 "use client";
 
-import { ALL_DEVICES, type Device } from "./devices";
+import { ALL_DEVICES, type Device } from "../../constants/devices";
 import { useQuery } from "@tanstack/react-query";
 
 type CapabilityResponse = {
