@@ -98,7 +98,7 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
             );
             setTimeout(() => {
               setOptimisticState(undefined);
-            }, 5000);
+            }, 10000);
           }}
         />
       </div>
@@ -132,7 +132,7 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
             );
             setTimeout(() => {
               setOptimisticBrightness(undefined);
-            }, 5000);
+            }, 10000);
           }}
         />
       )}
