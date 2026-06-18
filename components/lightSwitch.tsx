@@ -9,6 +9,7 @@ import { Device } from "@/lib/govee/constants/devices";
 import { cn } from "@/lib/utils";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import { Switch } from "@/components/ui/switch";
 
 type LightSwitchProps = {
   device: Device;
@@ -58,26 +59,23 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
   }
 
   return (
-    <div className="flex flex-col  gap-8 px-6 py-6 h-40 md:h-full rounded-xl justify-between items-center bg-card/100 border border-border/30 w-full">
+    <div className="flex flex-col  gap-5  p-5 md:p-6  h-30 md:gap-8 md:h-full rounded-xl justify-between items-center bg-card/100 border border-border/30 w-full">
       <div className="flex flex-row w-full">
         <div className="flex-1 flex flex-row gap-2 items-center">
-          <div className="text-foreground font-heading font-normal text-gray-200 text-lg">
+          <div className="text-foreground font-heading font-normal text-gray-200 text-sm md:text-lg">
             {device}
           </div>
 
           {brightness !== undefined && (
-            <p className="text-neutral-300">· {brightness}%</p>
+            <p className="text-neutral-300 md:text-lg text-sm">
+              · {brightness}%
+            </p>
           )}
         </div>
 
-        <Button
-          className={cn(
-            "rounded-full bg-orange-500 transition-all",
-            lightState === 1 ? "" : "bg-background",
-          )}
-          variant={lightState === 1 ? "default" : "outline"}
-          size="icon-xs"
-          onClick={() => {
+        <Switch
+          checked={lightState === 1}
+          onCheckedChange={() => {
             const nextState = lightState === 1 ? 0 : 1;
 
             setOptimisticState(nextState);
@@ -100,13 +98,14 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
             );
             setTimeout(() => {
               setOptimisticState(undefined);
-            }, 2000);
+            }, 5000);
           }}
         />
       </div>
 
       {brightness !== undefined && (
         <Slider
+          className=" h-10  md:h-full "
           value={[brightness]}
           disabled={lightState !== 1}
           max={100}
@@ -133,7 +132,7 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
             );
             setTimeout(() => {
               setOptimisticBrightness(undefined);
-            }, 2000);
+            }, 5000);
           }}
         />
       )}

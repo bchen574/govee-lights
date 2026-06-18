@@ -31,25 +31,25 @@ function Slider({
       min={min}
       max={max}
       className={cn(
-        "relative flex w-full h-full max-h-20 rounded-md overflow-hidden touch-none items-center select-none data-disabled:opacity-20 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col",
+        "relative flex w-full h-full max-h-20  overflow-hidden touch-none items-center select-none data-disabled:opacity-20 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col",
         className,
       )}
       {...props}
     >
       <SliderPrimitive.Track
         data-slot="slider-track"
-        className="relative grow overflow-hidden rounded-lg bg-muted data-horizontal:h-full data-horizontal:w-full data-vertical:h-full data-vertical:w-1"
+        className="relative grow overflow-hidden rounded-sm  md:rounded-lg bg-muted data-horizontal:h-full data-horizontal:w-full data-vertical:h-full data-vertical:w-1"
       >
         <SliderPrimitive.Range
           data-slot="slider-range"
-          className="absolute bg-gradient-to-r from-orange-300 to-orange-500  rounded-md select-none data-horizontal:h-full data-vertical:w-full"
+          className="absolute bg-amber-600  rounded-sm select-none data-horizontal:h-full data-vertical:w-full"
         />
       </SliderPrimitive.Track>
       {Array.from({ length: _values.length }, (_, index) => (
         <SliderPrimitive.Thumb
           data-slot="slider-thumb"
           key={index}
-          className="relative block size-2 bg-white/50  mr-4 w-1 h-6 shrink-0 rounded-md transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:bg-white/70 focus-visible:ring-1 focus-visible:outline-hidden active:ring-1 disabled:pointer-events-none disabled:opacity-50"
+          className="relative block size-2 bg-white/50  mr-4 w-1 h-0 md:h-6 shrink-0 rounded:sm md:rounded-md transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:bg-white/70 focus-visible:ring-1 focus-visible:outline-hidden active:ring-1 disabled:pointer-events-none disabled:opacity-50"
         />
       ))}
     </SliderPrimitive.Root>
