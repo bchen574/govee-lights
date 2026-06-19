@@ -43,23 +43,25 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
 
   if (!data) {
     return (
-      <div className="bg-card/100 border-border/30 flex h-full min-h-12 w-full flex-col items-center justify-between gap-8 rounded-xl border px-6 py-6">
+      <div className="bg-card border-border/50 flex h-full min-h-12 w-full flex-col items-center justify-between gap-8 rounded-xl border px-6 py-6">
         <div className="flex w-full flex-row">
           <div className="flex flex-1 flex-row items-center gap-2">
             <Skeleton className="h-6 w-24" />
-            <Skeleton className="h-4 w-12" />
+            <Skeleton className="h-6 w-12" />
           </div>
 
           <Skeleton className="h-8 w-8 rounded-md" />
         </div>
 
-        <Skeleton className="h-full w-full" />
+        <div className="h-full max-h-20 w-full">
+          <Skeleton className="h-full w-full rounded-md" />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-card border-border/50 flex h-full w-full flex-col items-center justify-between gap-5 rounded-xl border p-4 px-3 shadow-lg md:gap-8 md:p-6">
+    <div className="bg-card border-border/50 flex h-full w-full flex-col justify-between gap-5 rounded-xl border p-4 px-3 shadow-lg md:gap-8 md:p-6">
       <div className="flex w-full flex-row">
         <div className="flex flex-1 flex-row items-center gap-2">
           <div className="font-heading text-card-foreground text-sm font-medium md:text-lg">
@@ -105,7 +107,6 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
 
       {brightness !== undefined && (
         <Slider
-          className="h-10 md:h-full"
           value={[brightness]}
           disabled={lightState !== 1}
           max={100}
