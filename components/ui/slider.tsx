@@ -31,25 +31,25 @@ function Slider({
       min={min}
       max={max}
       className={cn(
-        "relative flex w-full md:max-h-20 max-h-7  overflow-hidden touch-none items-center select-none data-disabled:opacity-20 data-vertical:h-full data-vertical: data-vertical:w-auto data-vertical:flex-col",
+        "data-vertical: relative flex max-h-7 w-full touch-none items-center overflow-hidden select-none data-disabled:opacity-20 data-vertical:h-full data-vertical:w-auto data-vertical:flex-col md:max-h-20",
         className,
       )}
       {...props}
     >
       <SliderPrimitive.Track
         data-slot="slider-track"
-        className="relative grow overflow-hidden rounded-sm  md:rounded-lg bg-amber-400/8 data-horizontal:h-full data-horizontal:w-full data-vertical:h-full data-vertical:w-1"
+        className="relative grow overflow-hidden rounded-sm bg-amber-400/12 data-horizontal:h-full data-horizontal:w-full data-vertical:h-full data-vertical:w-1 md:rounded-lg"
       >
         <SliderPrimitive.Range
           data-slot="slider-range"
-          className="absolute bg-amber-600  rounded-sm select-none data-horizontal:h-full data-vertical:w-full"
+          className="bg-chart-2 absolute rounded-sm select-none data-horizontal:h-full data-vertical:w-full"
         />
       </SliderPrimitive.Track>
       {Array.from({ length: _values.length }, (_, index) => (
         <SliderPrimitive.Thumb
           data-slot="slider-thumb"
           key={index}
-          className="relative block size-2 bg-white/0 md:bg-white/50  mr-5 w-1 h-4 md:h-6 shrink-0 rounded-full md:rounded-md transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover: focus-visible: ring-0 md:ring-1 focus-visible:outline-hidden active:ring-1 disabled:pointer-events-none disabled:opacity-50"
+          className="hover: focus-visible: relative mr-5 block size-2 h-4 w-1 shrink-0 rounded-full bg-white/0 transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-1 focus-visible:outline-hidden active:ring-1 disabled:pointer-events-none disabled:opacity-50 md:h-6 md:rounded-md md:bg-white/50"
         />
       ))}
     </SliderPrimitive.Root>

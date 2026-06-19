@@ -43,9 +43,9 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
 
   if (!data) {
     return (
-      <div className="flex flex-col gap-8 px-6 py-6 h-full rounded-xl justify-between items-center bg-card/100 border border-border/30 w-full min-h-12">
-        <div className="flex flex-row w-full">
-          <div className="flex-1 flex flex-row gap-2 items-center">
+      <div className="bg-card/100 border-border/30 flex h-full min-h-12 w-full flex-col items-center justify-between gap-8 rounded-xl border px-6 py-6">
+        <div className="flex w-full flex-row">
+          <div className="flex flex-1 flex-row items-center gap-2">
             <Skeleton className="h-6 w-24" />
             <Skeleton className="h-4 w-12" />
           </div>
@@ -59,15 +59,15 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
   }
 
   return (
-    <div className="flex flex-col  gap-5  p-4 px-3 md:p-6 md:gap-8 h-full rounded-xl justify-between items-center bg-card/100 border border-border/30 w-full">
-      <div className="flex flex-row w-full">
-        <div className="flex-1 flex flex-row gap-2 items-center">
-          <div className="text-foreground font-heading font-normal text-gray-200 text-sm md:text-lg">
+    <div className="bg-card border-border/50 flex h-full w-full flex-col items-center justify-between gap-5 rounded-xl border p-4 px-3 shadow-lg md:gap-8 md:p-6">
+      <div className="flex w-full flex-row">
+        <div className="flex flex-1 flex-row items-center gap-2">
+          <div className="font-heading text-card-foreground text-sm font-medium md:text-lg">
             {device}
           </div>
 
           {brightness !== undefined && (
-            <p className="text-neutral-300 md:text-lg text-sm">
+            <p className="text-muted-foreground text-sm md:text-lg">
               · {brightness}%
             </p>
           )}
@@ -105,7 +105,7 @@ export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
 
       {brightness !== undefined && (
         <Slider
-          className=" h-10  md:h-full "
+          className="h-10 md:h-full"
           value={[brightness]}
           disabled={lightState !== 1}
           max={100}
