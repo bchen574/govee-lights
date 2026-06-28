@@ -26,7 +26,7 @@ type LightSwitchProps = {
   deviceStates?: AllDeviceStates;
 };
 
-export function LightSwitch({ device, deviceStates }: LightSwitchProps) {
+export function LightCard({ device, deviceStates }: LightSwitchProps) {
   const { mutate: sendCommand } = useSendCommands();
   const queryClient = useQueryClient();
 
