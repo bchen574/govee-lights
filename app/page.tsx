@@ -11,7 +11,7 @@ export default function Home() {
   const deviceKeys = Object.keys(ALL_DEVICES) as Device[];
 
   return (
-    <div className="bg-background grid h-100 grid-cols-2 items-center justify-start gap-4 px-4 py-6 font-sans md:grid md:h-200 md:grid-cols-2 md:gap-4 md:px-6">
+    <div className="grid h-100 grid-cols-2 items-center justify-start gap-4 px-4 py-6 font-sans md:grid md:h-200 md:grid-cols-2 md:gap-4 md:px-6">
       {deviceKeys.map((deviceKey) => (
         <LightSwitch
           key={deviceKey}
